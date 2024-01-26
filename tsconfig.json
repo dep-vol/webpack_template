@@ -1,0 +1,55 @@
+{
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "build",
+        "lib": [
+            "dom",
+            "esnext",
+            "dom.iterable"
+        ],
+        "target": "es5",
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "downlevelIteration": true,  
+        "isolatedModules": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true, 
+        "noUnusedLocals": true,
+        "noEmit": true,
+        "jsx": "react",
+        "allowJs": true,
+        "checkJs": false,
+        "incremental": true,
+        "tsBuildInfoFile": "node_modules/.cache/ts",
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        "plugins": [
+            {
+                "name": "typescript-plugin-css-modules",
+                "options": {
+                    "customTemplate": "./config/customTemplate.js"
+                }
+            }
+        ]
+    },
+    "ts-node": {
+        "compilerOptions": {
+        "module": "CommonJS"
+        }
+    },
+    "exclude": [
+        "node_modules",
+        "build",
+    ],
+    "include": [
+        "src/**/*",
+    ]
+}

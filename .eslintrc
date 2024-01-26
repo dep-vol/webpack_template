@@ -1,0 +1,60 @@
+{
+  "root": true,
+  "extends": ["plugin:react/recommended", "plugin:@typescript-eslint/recommended", "plugin:import/typescript"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2015,
+    "ecmaFeatures": {
+      "jsx": true, // JSX-compatible
+    },
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+  },
+  "plugins": ["@typescript-eslint", "react", "simple-import-sort"],
+  "rules": {
+    "@typescript-eslint/no-var-requires": "off", // To avoid of error: "Require statement not part of import statement", if ES modules are used
+    "semi": ["error", "always"],
+    "quotes": "off",
+    "indent": "off",
+    "no-fallthrough": "off", // disallow fallthrough of case statements
+    "no-multiple-empty-lines": [
+      1,
+      {
+        "max": 2,
+      },
+    ], // disallow multiple empty lines (off by default)
+    "no-nested-ternary": 1, // disallow nested ternary expressions (off by default)
+    "eqeqeq": 2, // require the use of === and !==
+    "react/prop-types": "off", // Prevent missing props validation in a React component definition
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          // regenerator-runtime should be first import
+          ["^\\u0000regenerator-runtime"],
+          // Packages `react` related packages come first.
+          ["^react", "^@?\\w"],
+          // Internal packages.
+          ["^(@)(/.*|$)"],
+          // Side effect imports.
+          ["^\\u0000"],
+          // Parent imports. Put `..` last.
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          // Other relative imports. Put same-folder imports and `.` last.
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          // Style imports.
+          ["^.+\\.s?css$", "/styles$"],
+        ],
+      },
+    ],
+  },
+  "settings": {
+    "react": {
+      "version": "detect", // Tell eslint-plugin-react to automatically detect the latest version of react.
+    },
+  },
+}
